@@ -2,11 +2,11 @@
 const express = require("express");
 const app = express();
 //앱 세팅
-app.set("views", "./views");
+app.set("views", "./src/views"); //꼭 중요한거!!!! 뷰 위치를 알아야 찾아가니까
 app.set("view engine", "ejs");
 
 
-const home = require("./routes/home");
+const home = require("./src/routes/home");
 app.use("/", home); // 미들웨어함수임 (요청과 응답 사이에서 실행하는 함수
 //  절대경로 / 가 있으면 다 home 으로 보냄 
 
