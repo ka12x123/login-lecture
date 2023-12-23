@@ -4,7 +4,7 @@ const app = express();
 //앱 세팅
 app.set("views", "./src/views"); //꼭 중요한거!!!! 뷰 위치를 알아야 찾아가니까
 app.set("view engine", "ejs");
-
+app.use(express.static(`${__dirname}/src/public`));
 
 const home = require("./src/routes/home");
 app.use("/", home); // 미들웨어함수임 (요청과 응답 사이에서 실행하는 함수
