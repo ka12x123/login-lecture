@@ -5,10 +5,11 @@ const router = express.Router();
 const ctrl = require("./home.ctrl");
 
 
-router.get("/", ctrl.home);
+router.get("/", ctrl.output.home);
 
-router.get("/login", ctrl.login); // /login 이라는 요청을 수행하는게 콤마 다음인 컨트롤러다. 라우터는 단지 클라이언트에게 받은 요청을
+router.get("/login", ctrl.output.login); // /login 이라는 요청을 수행하는게 콤마 다음인 컨트롤러다. 라우터는 단지 클라이언트에게 받은 요청을
 // 연결 해주는 역할이기 때문에 ctrl 러 부분은 따로 파일을 만들어줘서 최적화한다.
+router.post("/login", ctrl.process.login);
 
 //외부에서 내보내는 코드
 module.exports = router;
