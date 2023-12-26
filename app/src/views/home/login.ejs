@@ -3,12 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/home/login.css">
     <script src="/js/home/login.js" defer></script>
+    <title>Document</title>
 </head>
 <body>
-    <input type="text" id="id" placeholder="아이디"><br>
-    <input type="text" id="psword" laceholder="비밀번호"><br>
-    <button>login</button>
+    <h2>로그인 하세요.</h2>
+<div class="container" id="container">
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Sign in</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>or use your account</span>
+			<input type="text" id="id" placeholder="아이디" />
+			<input type="password" id="psword" placeholder="비밀번호" />
+			<a href="#">Forgot your password?</a>
+			<p id="button" class="button1">Sign In</p>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+                <a href="/register"><p class="button1"id="ghost">Sign Up</p></a>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
+<!--Copyright (c) 2023 by Benjamin (https://codepen.io/maggiben/pen/KwdeaM)-->

@@ -1,4 +1,5 @@
 "use strict ";
+const { response } = require("../../app");
 const UserStorage = require("./UserStorage");
 //const userstorage = new UserStorage(); //둘 중에 하나
 
@@ -18,6 +19,11 @@ class User{
         }
         return { success : false, msg : "존재하지 않는 아이디입니다. "};
 
+    }
+    register(){
+        const body = this.body;
+        const response =  UserStorage.save(body);
+        return response;
     }
 }
 
