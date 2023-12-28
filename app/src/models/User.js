@@ -1,15 +1,13 @@
 "use strict ";
 const { response } = require("../../app");
 const UserStorage = require("./UserStorage");
-//const userstorage = new UserStorage(); //둘 중에 하나
-
 class User{
     constructor(body){
         this.body = body;
     }
-    login(){
+    async login(){
         const body = this.body; // 중복되는 많은 코드가 있음 이렇게 해주는 게 좋음.
-        const {id, psword} = UserStorage.GetUsersinfo(body.id);//static 이여서 객체 생성없이 가능
+        const {id, psword} = await UserStorage.GetUsersinfo(body.id);//static 이여서 객체 생성없이 가능
         if(id){
             if(body.id === id && body.psword === psword)
             {
@@ -20,11 +18,15 @@ class User{
         return { success : false, msg : "존재하지 않는 아이디입니다. "};
 
     }
-    register(){
-        const body = this.body;
-        const response =  UserStorage.save(body);
-        return response;
-    }
+    async register() {
+        const body1 = this.body;
+        try {
+            const response = await UserStorage.save(body1);
+            return response;
+        } catch (err) {
+            return { success: false, msg: err };
+        }
+    }    
 }
 
 module.exports = User;

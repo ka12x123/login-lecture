@@ -1,7 +1,7 @@
 "use strict";
 const id = document.querySelector("#id"),
     psword = document.querySelector("#psword"),
-    loginbtn = document.querySelector("#button");
+loginbtn = document.querySelector("#button");
 loginbtn.addEventListener("click", login); //login() 가 아니라 login 이네 
 function login(){
     const req = {
