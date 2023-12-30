@@ -3,6 +3,8 @@
 const express = require("express");
 const bodyparser = require("body-parser");
 const app = express();
+const dotenv = require("dotenv"); //닷이엔브이
+dotenv.config();
 //앱 세팅
 app.set("views", "./src/views"); //꼭 중요한거!!!! 뷰 위치를 알아야 찾아가니까
 app.set("view engine", "ejs");
