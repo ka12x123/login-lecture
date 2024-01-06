@@ -21,6 +21,7 @@ function login(){
         if(res.success){
             location.href = "/";
         } else {
+            if(res.err) return alert("서비스에 문제가 발생했습니다.");
             alert(res.msg);
         }
     })

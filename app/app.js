@@ -4,14 +4,17 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const app = express();
 const dotenv = require("dotenv"); //닷이엔브이
-const morgan = require("morgan");
-const accessLogStream = require("./src/config/log.js");
+//const morgan = require("morgan");
+const logger = require("./src/config/logger");
+logger.error("HAAAA");
 //앱 세팅
 dotenv.config();
 
+
+
 app.set("views", "./src/views"); //꼭 중요한거!!!! 뷰 위치를 알아야 찾아가니까
 app.set("view engine", "ejs");
-app.use(morgan("common", { stream: accessLogStream}));
+//app.use(morgan("common", { stream: accessLogStream}));
 app.use(express.static(`${__dirname}/src/public`));
 app.use(bodyparser.json());
 // URL을 통해 전달되는 데이터에 한글, 공백 등과 같은 문자가 포함될 경우 제대로 인식되지 않는 문제 해결
