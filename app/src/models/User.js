@@ -10,12 +10,12 @@ class User {
         const body = this.body;
 
         try {
-            const userInfo = await UserStorage.GetUsersinfo(body.id);
+            const userInfo = await UserStorage.GetUsersinfo(body.id); // {id, psword} 만 가져오면 id 값이 없을 때 오류가 발생하니 변수를 통해 가져와야함
 
             if (userInfo && body.id === userInfo.id && body.psword === userInfo.psword) {
                 return { success: true };
             } 
-            return { success: false, msg: "존재하지 않는 아이디나 비밀번호가 틀렸습니다." };  //else 를 안쓰면 if 문이 작동해도 출력하니까 오류가 생긴 듯
+            return { success: false, msg: "아이디 또는 비밀번호가 틀렸습니다." };  //else 를 안쓰면 if 문이 작동해도 출력하니까 오류가 생긴 듯
         } catch (err) {
             return { success: false, err };
         }
